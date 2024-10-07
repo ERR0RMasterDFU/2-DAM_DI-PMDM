@@ -1,0 +1,4 @@
+.modal-content {
+    max-height: 1000px; /* Cambia este valor para ajustar la altura */
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es más alto */
+}
