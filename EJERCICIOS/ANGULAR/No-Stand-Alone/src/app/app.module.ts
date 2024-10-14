@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {Component} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RegistroComponent } from './components/registro/registro.component';
+import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { RegistroComponent } from './components/registro/registro.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Component, 
+    MaterialModule
   ],
   providers: [
     provideAnimationsAsync()
