@@ -1,0 +1,37 @@
+<!-- 1. PROPERTY BINDING: print value in a content place 
+ We use the moustache syntax to show the variable value. -->
+<p>{{valoracion}}</p>
+
+
+<!-- 2. PROPERTY BINDING: its posible to apply the variable value ionside an element attribute -->
+<img [src]="imgURL">
+
+
+<!-- 2. EVENT BINDING: la comunicación se realiza en el sentido contrario al property binding. Ahora la información viaja desde el html al typescrpit y para hacer diucha comunicacion se utilizan eventos activados por el usuaripo.-->
+
+<button (click)="showUserInfo()">PINSHA</button>
+
+<br>
+<br>
+
+<!-- Se utiliza la sintaxys banana in a box >>> [()]-->
+
+<input [(ngModel)]="nombre">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
