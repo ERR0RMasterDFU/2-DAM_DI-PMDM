@@ -7,5 +7,27 @@
 }
 
 .fondoDigitos{
-    background-color: rgb(156, 156, 156);
+    background-color: #778c87;
+}
+
+.anchoTeclas {
+    width: 80%;
+}
+
+.anchoIgual {
+    width: 20%;
+}
+
+.colorCalcu {
+    background-color: #252b31;
+}
+
+.colorTeclas {
+    background-color: #eee8ea;
+    color: #15191c;
+}
+
+.colorTeclasOperaciones {
+    background-color: #882027;
+    color: #e1dae1;
 }
