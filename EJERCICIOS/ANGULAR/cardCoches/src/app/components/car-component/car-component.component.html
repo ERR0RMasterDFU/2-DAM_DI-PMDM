@@ -1,13 +1,16 @@
 <div class="card" style="width: 35rem;">
-    <div class="d-flex">
-        <div class="card-body">
-            <h1 class="card-text text-uppercase">{{ nombre }}</h1>
-            <p class="card-text">{{ tipo }}</p>
-            <br><br>
-            <div class="example-button-row">
-              <button mat-flat-button>{{ precio }}€/día</button>
+    <div class="card-body d-flex justify-content-between m-2">
+        <div class="d-flex flex-column justify-content-between">
+            <div>
+                <h2 class="card-title">{{nombre}}</h2>
+                <p class="card-text text-secondary">{{tipo}}</p>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark rounded-4"><h4 class="m-0 p-1">${{ precio }}/día</h4></button>
             </div>
         </div>
-        <img [src]="foto" class="card-img-end" alt="Coche tesla Kput">
+        <div>
+            <img [src]="foto" style="width: 320px;" alt="Tesla Kput X">
+        </div>
     </div>
 </div>

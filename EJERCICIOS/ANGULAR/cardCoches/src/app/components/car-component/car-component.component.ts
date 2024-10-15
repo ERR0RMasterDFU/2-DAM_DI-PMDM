@@ -16,7 +16,7 @@ export class CarComponentComponent {
     this.nombre = 'Tesla Kput X';
     this.tipo = 'Automágico';
     this.precio = 2067;
-    this.foto = 'https://es.gizmodo.com/el-cybertruck-de-tesla-feo-tenemos-que-repasar-lo-que-1840065516';
+    this.foto = 'https://png.pngtree.com/png-clipart/20231024/original/pngtree-tesla-model-s-white-transparent-background-png-image_13408947.png';
   }
 
 }
