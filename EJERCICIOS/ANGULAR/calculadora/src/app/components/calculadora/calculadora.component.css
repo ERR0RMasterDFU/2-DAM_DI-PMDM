@@ -1,25 +1,33 @@
-.rellenoTeclas {
-    width: 30%;
-}
+/* CARTA (CALCULADORA) --------------------------------------------------------------------*/
 
 .anchoCarta {
     width: 20rem;
 }
 
-.fondoDigitos{
+.colorCalcu {
+    background-color: #252b31;
+}
+
+/* ----------------------------------------------------------------------------------------*/
+
+
+/* PANTALLA DE DÍGITOS --------------------------------------------------------------------*/
+
+.fondoDigitos {
     background-color: #778c87;
 }
 
-.anchoTeclas {
-    width: 80%;
+.digitoSize {
+    font-size: 26px;
 }
 
-.anchoIgual {
-    width: 20%;
-}
+/* ----------------------------------------------------------------------------------------*/
 
-.colorCalcu {
-    background-color: #252b31;
+
+/* TECLAS ---------------------------------------------------------------------------------*/
+
+.rellenoTeclas {
+    width: 30%;
 }
 
 .colorTeclas {
@@ -27,7 +35,20 @@
     color: #15191c;
 }
 
-.colorTeclasOperaciones {
-    background-color: #882027;
-    color: #e1dae1;
+.anchoTeclas {
+    width: 80%;
 }
+
+.alturaAC {
+    height: 37.6px;
+}
+
+.anchoIgual {
+    width: 20%;
+}
+
+.alturaIgual {
+    height: 73.5%;
+}
+
+/* ----------------------------------------------------------------------------------------*/

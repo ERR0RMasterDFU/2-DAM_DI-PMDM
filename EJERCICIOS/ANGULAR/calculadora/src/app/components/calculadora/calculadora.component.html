@@ -1,34 +1,35 @@
 <div class="card anchoCarta colorCalcu position-absolute top-50 start-50 translate-middle">
     <div class="card-body w-100">
-        <div class="fondoDigitos rounded w-100">
-            <p class="m-0 text-end px-2 py-2">09</p>
+        <div class="fondoDigitos rounded w-100 pe-1">
+            <strong><p class="m-0 text-end text-black digitoSize px-2 py-2">{{mostrarEnPantalla()}}</p></strong>
         </div>
         <br>
         <div class="d-flex w-100">
             <div class="anchoTeclas me-1">
                 <div class="d-flex justify-content-between w-100">
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{siete}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{ocho}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{nueve}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(siete) : seleccionarNumero2(siete)">{{siete}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(ocho) : seleccionarNumero2(ocho)">{{ocho}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(nueve) : seleccionarNumero2(nueve)">{{nueve}}</button>
                 </div>
                 <div class="d-flex justify-content-between w-100 my-2">
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{cuatro}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{cinco}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{seis}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(cuatro) : seleccionarNumero2(cuatro)">{{cuatro}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(cinco) : seleccionarNumero2(cinco)">{{cinco}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(seis) : seleccionarNumero2(seis)">{{seis}}</button>
                 </div>
                 <div class="d-flex justify-content-between w-100">
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{uno}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{dos}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{tres}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(uno) : seleccionarNumero2(uno)">{{uno}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(dos) : seleccionarNumero2(dos)">{{dos}}</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(tres) : seleccionarNumero2(tres)">{{tres}}</button>
                 </div>
                 <div class="d-flex justify-content-between w-100 mt-2">
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas">{{cero}}</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclasOperaciones">+</button>
-                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclasOperaciones">-</button>
+                    <button class="btn btn-secondary card-text rellenoTeclas colorTeclas" (click)="postOperacion==0 ? seleccionarNumero1(cero) : seleccionarNumero2(cero)">{{cero}}</button>
+                    <button class="btn btn-danger card-text rellenoTeclas" (click)="sumar()">+</button>
+                    <button class="btn btn-danger card-text rellenoTeclas" (click)="restar()"><i class="bi bi-dash"></i></button>
                 </div>
             </div>
             <div class="anchoIgual ms-2">
-                <button class="btn btn-secondary card-text w-100 h-100 colorTeclas">=</button>
+                <button class="btn btn-success card-text rellenoTeclas alturaAC w-100" (click)="borrarTodo()">AC</button>
+                <button class="btn btn-secondary card-text w-100 mt-2 alturaIgual colorTeclas" (click)="operacion()">=</button>
             </div>
         </div>
     </div>
