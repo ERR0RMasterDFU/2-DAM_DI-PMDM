@@ -51,7 +51,6 @@ export class CalculadoraComponent {
     this.resultado = 0;
     this.postOperacion = 0;
     this.suma = false;
-    this.resta = false;
   }
 
   seleccionarNumero1(numero:number){
@@ -69,7 +68,7 @@ export class CalculadoraComponent {
 
   restar() {
     this.postOperacion = 2;
-    this.resta = true;
+    this.suma = false;
   }
 
 
