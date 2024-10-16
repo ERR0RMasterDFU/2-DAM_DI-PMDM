@@ -1,1 +1,68 @@
-<p>tabla works!</p>
+<!--div class="d-flex justify-content-around w-100">
+    <div>
+        <mat-checkbox class="example-margin" id="1">Volatilizar columna (CÓDIGO ALUMNO)</mat-checkbox><br>
+        <mat-checkbox class="example-margin">Volatilizar columna (NOMBRE)</mat-checkbox>
+    </div>
+    <div>
+        <mat-checkbox class="example-margin">Volatilizar columna (APELLIDOS)</mat-checkbox><br>
+        <mat-checkbox class="example-margin">Volatilizar columna (DNI / NIF)</mat-checkbox>
+    </div>
+    <div>
+        <mat-checkbox class="example-margin">Volatilizar columna (EDAD)</mat-checkbox><br>
+        <mat-checkbox class="example-margin">Volatilizar columna (CURSO)</mat-checkbox>
+    </div>
+</div-->
+
+<div class="checkbox-container">
+    <!-- Checkboxes para mostrar/ocultar columnas -->
+    <mat-checkbox *ngFor="let column of columns"
+                  [checked]="displayedColumns.includes(column)"
+                  (change)="toggleColumn(column, $event.checked)">
+      {{ column | titlecase }}
+    </mat-checkbox>
+  </div>
+  
+<div class="container mt-3">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-warning table-striped border border-1 border-dark">
+    
+        <!-- COLUMNA NUM_ALUMNO -->
+        <ng-container matColumnDef="numAlumno">
+        <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>CÓDIGO ALUMNO</th>
+        <td mat-cell class="text-center fw-bold align-middle" *matCellDef="let alumno"> {{alumno.numAlumno}} </td>
+        </ng-container>
+    
+        
+        <!-- COLUMNA NOMBRE ------>
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>NOMBRE</th>
+            <td mat-cell class="text-center align-middle" *matCellDef="let alumno"> {{alumno.nombre}} </td>
+        </ng-container>
+    
+        <!-- COLUMNA APELLIDOS --->
+        <ng-container matColumnDef="apellidos">
+            <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>APELLIDOS</th>
+            <td mat-cell class="text-center align-middle" *matCellDef="let alumno"> {{alumno.apellidos}} </td>
+        </ng-container>
+    
+        <!-- COLUMNA NIF --------->
+        <ng-container matColumnDef="nif">
+            <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>DNI / NIF</th>
+            <td mat-cell class="text-center align-middle" *matCellDef="let alumno"> {{alumno.nif}} </td>
+        </ng-container>
+
+        <!-- COLUMNA EDAD -------->
+        <ng-container matColumnDef="edad">
+            <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>EDAD</th>
+            <td mat-cell class="text-center align-middle" *matCellDef="let alumno"> {{alumno.edad}} </td>
+        </ng-container>
+
+        <!-- COLUMNA CURSO ------->
+        <ng-container matColumnDef="curso">
+            <th mat-header-cell class="text-center fw-bold bg-warning align-middle" *matHeaderCellDef>CURSO</th>
+            <td mat-cell class="text-center align-middle" *matCellDef="let alumno"> {{alumno.curso}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
