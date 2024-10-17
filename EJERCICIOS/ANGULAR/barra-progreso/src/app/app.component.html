@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barra de progreso</title>
 </head>
-<body class="bg-dark">
-  <app-barra></app-barra>
+<body>
+  <div class="w-50 position-absolute top-50 start-50 translate-middle">
+    <input class="mb-3" type="number" min="0" max="100" [(ngModel)]="valorProgreso"/>
+    <app-barra [progreso]="valorProgreso"></app-barra>
+  </div>
 </body>
 </html>
