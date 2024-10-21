@@ -15,13 +15,9 @@ export class VehiclesListComponent implements OnInit {
   constructor(private vehiclesService: VehiclesListService){}
 
   ngOnInit(): void {
-    
     this.vehiclesService.getVehiclesList().subscribe(respuesta => {
       this.listadoVehiculos = respuesta.results;
     });
-
-    //this.vehiclesService.getImagen(this.listadoVehiculos.url, this.imagen)
-    
   }
 
   getImagen(url: string) {

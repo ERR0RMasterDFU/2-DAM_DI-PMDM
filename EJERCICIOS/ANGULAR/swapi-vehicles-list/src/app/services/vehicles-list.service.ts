@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class VehiclesListService {
 
   constructor(private http: HttpClient) {}
@@ -14,8 +15,4 @@ export class VehiclesListService {
     return this.http.get<VehiclesListResponse>('http://swapi.dev/api/vehicles');
   }
 
-  /*getImagen(url: string, imagen: string) {
-    let id = url.slice(31, -1);
-    return imagen.concat(id + '.jpg');
-  }*/
 }
