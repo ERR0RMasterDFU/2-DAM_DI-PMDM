@@ -10,15 +10,23 @@ import { VehiclesListService } from '../../services/vehicles-list.service';
 export class VehiclesListComponent implements OnInit {
 
   listadoVehiculos: VehiclesList [] = [];
+  imagen: string = 'https://starwars-visualguide.com/assets/img/vehicles/'
 
   constructor(private vehiclesService: VehiclesListService){}
 
   ngOnInit(): void {
     
-    this.vehiclesService.getVehiclesList().subscribe((respuesta) => {
-      this.listadoVehiculos = respuesta;
+    this.vehiclesService.getVehiclesList().subscribe(respuesta => {
+      this.listadoVehiculos = respuesta.results;
     });
-  
+
+    //this.vehiclesService.getImagen(this.listadoVehiculos.url, this.imagen)
+    
+  }
+
+  getImagen(url: string) {
+    let id = url.slice(31, -1);
+    return this.imagen.concat(id + '.jpg');
   }
 
 }

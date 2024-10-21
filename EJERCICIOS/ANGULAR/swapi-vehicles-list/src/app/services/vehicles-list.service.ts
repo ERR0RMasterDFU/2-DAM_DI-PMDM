@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VehiclesList } from '../interfaces/vehicles.interfaces';
+import { VehiclesListResponse } from '../interfaces/vehicles.interfaces';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,7 +10,12 @@ export class VehiclesListService {
 
   constructor(private http: HttpClient) {}
 
-  getVehiclesList(): Observable<VehiclesList[]> {
-    return this.http.get<VehiclesList[]>('http://localhost:3000/vehicles-list');
+  getVehiclesList(): Observable<VehiclesListResponse> {
+    return this.http.get<VehiclesListResponse>('http://swapi.dev/api/vehicles');
   }
+
+  /*getImagen(url: string, imagen: string) {
+    let id = url.slice(31, -1);
+    return imagen.concat(id + '.jpg');
+  }*/
 }

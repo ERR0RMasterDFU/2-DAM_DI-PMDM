@@ -1,5 +1,8 @@
 {
-	"vehicles-list": [
+	"count": 39,
+	"next": "https://swapi.dev/api/vehicles/?page=2",
+	"previous": null,
+	"results": [
 		{
 			"name": "Sand Crawler",
 			"model": "Digger Crawler",
