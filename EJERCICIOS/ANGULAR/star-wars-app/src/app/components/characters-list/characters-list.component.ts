@@ -10,7 +10,7 @@ import { CharactersList } from '../../models/characters.interfaces';
 export class CharactersListComponent {
 
   listadoPersonajes: CharactersList [] = [];
-  imagen: string = 'https://starwars-visualguide.com/assets/img/vehicles/' /**/ 
+  imagen: string = 'https://starwars-visualguide.com/assets/img/characters/'
 
   constructor(private charactersService: CharactersListService){}
 
@@ -21,7 +21,7 @@ export class CharactersListComponent {
   }
 
   getImagen(url: string) {
-    let id = url.slice(31, -1);
+    let id = url.slice(28, -1);
     return this.imagen.concat(id + '.jpg');
   }
 
