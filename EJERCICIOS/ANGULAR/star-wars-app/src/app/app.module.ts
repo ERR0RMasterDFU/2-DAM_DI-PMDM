@@ -7,11 +7,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VehiclesListComponent } from './components/vehicles-list/vehicles-list.component';
 import { provideHttpClient } from '@angular/common/http';
+import { CharactersListComponent } from './components/characters-list/characters-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VehiclesListComponent
+    VehiclesListComponent,
+    CharactersListComponent,
+    CharactersListComponent
   ],
   imports: [
     BrowserModule,
