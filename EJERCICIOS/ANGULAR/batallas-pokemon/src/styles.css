@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fondo {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/013/381/417/non_2x/versus-screen-design-banner-competition-vs-game-match-martial-arts-vs-sports-battle-easy-to-edit-illustration-vector.jpg');
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    
+}

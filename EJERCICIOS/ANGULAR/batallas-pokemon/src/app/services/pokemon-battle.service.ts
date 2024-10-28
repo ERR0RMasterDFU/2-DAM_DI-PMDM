@@ -11,15 +11,7 @@ export class PokemonBattleService {
   constructor(private http: HttpClient) { }
 
   getListPokemon(): Observable<PokemonBattleResponse> {
-    return this.http.get<PokemonBattleResponse>('https://pokeapi.co/api/v2/pokemon/');
+    return this.http.get<PokemonBattleResponse>('https://pokeapi.co/api/v2/pokemon/?limit=1025');
   }
-
-  /*getPokemonChallengers() {
-    Math.random() * (this.getListPokemon.length - 1) + 1;
-    return this.getListPokemon.
-  }
-
-  /*function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-  }*/
+  
 }

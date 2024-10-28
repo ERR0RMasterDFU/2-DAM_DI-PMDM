@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Pokemon, PokemonBattleResponse } from '../../models/pokemonBattleResponse.interfaces';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from '../../models/pokemonBattleResponse.interfaces';
 import { PokemonBattleService } from '../../services/pokemon-battle.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { PokemonBattleService } from '../../services/pokemon-battle.service';
 })
 export class PokemonBattleComponent implements OnInit {
 
+  pokemonIdUno: number = 1;
+  pokemonIdDos: number = 1;
+
   listadoPokemon: Pokemon[] = [];
-  //peliculasSelected: number[] = [];
   constructor(private pokemonService: PokemonBattleService) {}
 
   ngOnInit(): void {
@@ -19,16 +21,14 @@ export class PokemonBattleComponent implements OnInit {
     });
   }
 
-  
-
-  /*getRandomNumber(min: number, max: number) {
-    return Math.random() * (max - min) + min;
+  getIdPokemonUno(id: number) {
+    this.pokemonIdUno = id;
+    return this.pokemonIdUno;
   }
 
-  getTwoChallengers() {
-    return this.getRandomNumber(1, this.listadoPokemon.length)
-  }*/
-
-
+  getIdPokemonDos(id: number) {
+    this.pokemonIdDos = id;
+    return this.pokemonIdDos;
+  }
 
 }

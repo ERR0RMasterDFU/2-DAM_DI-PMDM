@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { PokemonService } from '../../services/pokemon.service';
+import { PokemonResponse } from '../../models/pokemonResponse.interfaces';
 
 @Component({
   selector: 'app-pokemon',
@@ -6,24 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './pokemon.component.css'
 })
 export class PokemonComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+    
+  @Input() idPoke: number | undefined;
   
-  /*pokemonList: Pokemon[] = [];
-  imagen = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  // ÚLTIMA HORA
+  @Input() idUno: number | undefined;
+  @Input() idDos: number | undefined;
+  
+  pokemon: PokemonResponse | undefined;
 
   constructor(private pokemonService: PokemonService) { }
-  
+
   ngOnInit(): void {
-    this.pokemonService.getPokemonList().subscribe((response) => {
-      this.pokemonList = response.results;
+    this.loadPokemon();
+  }
+
+  loadPokemon(): void {
+    this.pokemonService.getPokemon(this.idPoke!).subscribe((response) => {
+      this.pokemon = response;
     });
   }
 
-  getImagen(url: string) {
-    let id = url.slice(34, -1);
-    return this.imagen.concat(id + '.png');
-  }*/
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['idPoke'] && changes['idPoke'].currentValue !== undefined) {
+      this.loadPokemon();
+    }
+  }
+
+  atacarPokemon(id: number | undefined) {
+    
+  }
 
 }

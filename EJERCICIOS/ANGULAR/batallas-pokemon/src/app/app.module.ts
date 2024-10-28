@@ -8,6 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PokemonBattleComponent } from './components/pokemon-battle/pokemon-battle.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { PokemonBattleComponent } from './components/pokemon-battle/pokemon-batt
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync(),
