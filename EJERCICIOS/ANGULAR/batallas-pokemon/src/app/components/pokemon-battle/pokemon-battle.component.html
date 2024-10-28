@@ -1,0 +1,7 @@
+<div class="d-flex w-100">
+    @for(pokemon of listadoPokemon; track pokemon.url) {
+        <app-pokemon></app-pokemon>
+        <p>VS</p>
+        <app-pokemon></app-pokemon>
+    }
+</div>
