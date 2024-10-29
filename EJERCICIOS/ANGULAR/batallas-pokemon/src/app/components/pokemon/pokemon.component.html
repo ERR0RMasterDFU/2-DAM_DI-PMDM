@@ -14,8 +14,11 @@
                     <h4 class="m-0"><strong>ATK:</strong> {{ pokemon!.stats[1].base_stat }}</h4>
                 </div>
             </div>
+            <div class="p-3 bg-dark">
+                <ngb-progressbar [type]="getLifeBarColor(pokemon!.stats[0].base_stat)" [value]="pokemon!.stats[0].base_stat" [max]="pokemon!.stats[0].base_stat" [striped]="true" [animated]="true"></ngb-progressbar>
+            </div>
             <div class="card-body border border-3 border-black border-start-0 border-end-0 border-bottom-0 d-flex align-items-center justify-content-center">
-                <button class="btn btn-danger" (click)="atacarPokemon()">ATACAR</button>
+                <button class="btn btn-danger" (click)="hacerAtaque(pokemon!.stats[1].base_stat)">ATACAR</button>
             </div>
         </div>
     </div>

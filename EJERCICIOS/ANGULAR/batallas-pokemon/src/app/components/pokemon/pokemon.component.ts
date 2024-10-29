@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonResponse } from '../../models/pokemonResponse.interfaces';
 
@@ -13,7 +13,7 @@ export class PokemonComponent implements OnInit {
   
   pokemon: PokemonResponse | undefined;
 
-  //@Output() onAttackDone = new EventEmitter<>
+  @Output() ataqueRealizado = new EventEmitter<number>();
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -33,8 +33,22 @@ export class PokemonComponent implements OnInit {
     }
   }
 
-  atacarPokemon() {
-    //let ataque Math.random
+  getLifeBarColor(ps: number): string {
+    if (ps == ps) {
+      return 'primary';
+    } else if (ps >= ps*75/100) {
+      return 'success';
+    } else if (ps >= ps*50/100) {
+      return 'warning';
+    } else {
+      return 'danger';
+    }
   }
 
+  hacerAtaque(atk: number) {
+    let max = atk/2;
+    let min = atk/4;
+    let ataque = Math.floor(Math.random() * (max - min) + min);
+    this.ataqueRealizado.emit(ataque);
+  }
 }
