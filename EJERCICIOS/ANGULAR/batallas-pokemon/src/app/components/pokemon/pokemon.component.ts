@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, SimpleChanges } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonResponse } from '../../models/pokemonResponse.interfaces';
 
@@ -11,19 +11,17 @@ export class PokemonComponent implements OnInit {
     
   @Input() idPoke: number | undefined;
   
-  // ÚLTIMA HORA
-  @Input() idUno: number | undefined;
-  @Input() idDos: number | undefined;
-  
   pokemon: PokemonResponse | undefined;
+
+  //@Output() onAttackDone = new EventEmitter<>
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.loadPokemon();
+    this.generarPokemon();
   }
 
-  loadPokemon(): void {
+  generarPokemon(): void {
     this.pokemonService.getPokemon(this.idPoke!).subscribe((response) => {
       this.pokemon = response;
     });
@@ -31,12 +29,12 @@ export class PokemonComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['idPoke'] && changes['idPoke'].currentValue !== undefined) {
-      this.loadPokemon();
+      this.generarPokemon();
     }
   }
 
-  atacarPokemon(id: number | undefined) {
-    
+  atacarPokemon() {
+    //let ataque Math.random
   }
 
 }
