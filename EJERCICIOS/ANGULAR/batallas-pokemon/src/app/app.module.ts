@@ -9,17 +9,18 @@ import { provideHttpClient } from '@angular/common/http';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PokemonBattleComponent } from './components/pokemon-battle/pokemon-battle.component';
 import { FormsModule } from '@angular/forms';
+import { EstadoComponent } from './components/estado/estado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
-    PokemonBattleComponent
+    PokemonBattleComponent,
+    EstadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     NgbModule,
     FormsModule
   ],

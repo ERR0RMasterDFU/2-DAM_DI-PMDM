@@ -1,22 +1,52 @@
-<div class="container-fluid position-absolute top-50 start-50 translate-middle">
-    <div class="d-flex w-100 justify-content-around align-items-center ">
-        <div class="input-group mb-3 " style="width: 20%;">
-            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 1" min='1' [max]='listadoPokemon.length' [(ngModel)]="pokemonIdUno">
-            <button class="btn btn-primary" type="button" id="button-addon2" >Pokémon 1</button>
-        </div>
-        <div class="input-group mb-3" style="width: 20%;">
-            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 2" min='1' [max]='listadoPokemon.length' [(ngModel)]="pokemonIdDos">
-            <button class="btn btn-danger" type="button" id="button-addon2">Pokémon 2</button>
+@if (lifePokemon1 <= 0 && lifePokemon2 > 0) {
+
+    <div class="container-fluid position-absolute top-50 start-50 translate-middle">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="w-50" style="text-align: center;">
+                <app-estado [life]="lifePokemon1"></app-estado>
+            </div>
+            <div class="w-50" style="text-align: center;">
+                <app-estado [life]="lifePokemon2"></app-estado>
+            </div>
         </div>
     </div>
-    <div>
-        <div class="d-flex w-100 justify-content-center align-items-center">
-            <div class="w-50">
-                <app-pokemon [idPoke]='getIdPokemonUno(pokemonIdUno)'></app-pokemon>
+    
+} @else if (lifePokemon2 <= 0 && lifePokemon1 > 0) {
+
+    <div class="container-fluid position-absolute top-50 start-50 translate-middle">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="w-50" style="text-align: center;">
+                <app-estado [life]="lifePokemon1"></app-estado>
             </div>
-            <div class="w-50">
-                <app-pokemon [idPoke]='getIdPokemonDos(pokemonIdDos)'></app-pokemon>
+            <div class="w-50" style="text-align: center;">
+                <app-estado [life]="lifePokemon2"></app-estado>
             </div>
         </div>
-    <div>
-</div>
+    </div>
+
+} @else { 
+
+    <div class="container-fluid position-absolute top-50 start-50 translate-middle">
+        <div class="d-flex w-100 justify-content-around align-items-center ">
+            <div class="input-group mb-3 " style="width: 20%;">
+                <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 1" min='1' [max]='listadoPokemon.length' [(ngModel)]="pokemonIdUno">
+                <button class="btn btn-primary" type="button" id="button-addon2" >Pokémon 1</button>
+            </div>
+            <div class="input-group mb-3" style="width: 20%;">
+                <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 2" min='1' [max]='listadoPokemon.length' [(ngModel)]="pokemonIdDos">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pokémon 2</button>
+            </div>
+        </div>
+        <div>
+            <div class="d-flex w-100 justify-content-center align-items-center">
+                <div class="w-50">
+                    <app-pokemon [idPoke]='getIdPokemonUno(pokemonIdUno)' [life]="lifePokemon1" [turnoToca]="turnoPokemon == 1" (ataqueRealizado)="aplicarDanyo($event)"></app-pokemon>
+                </div>
+                <div class="w-50">
+                    <app-pokemon [idPoke]='getIdPokemonDos(pokemonIdDos)' [life]="lifePokemon2" [turnoToca]="turnoPokemon == 2" (ataqueRealizado)="aplicarDanyo($event)"></app-pokemon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

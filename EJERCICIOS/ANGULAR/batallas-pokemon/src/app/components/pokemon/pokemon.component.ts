@@ -13,7 +13,12 @@ export class PokemonComponent implements OnInit {
   
   pokemon: PokemonResponse | undefined;
 
+  @Input() life: number = 100;
+  
+  //showAnimation: boolean = false;
+
   @Output() ataqueRealizado = new EventEmitter<number>();
+  @Input() turnoToca: boolean = false;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -31,14 +36,24 @@ export class PokemonComponent implements OnInit {
     if (changes['idPoke'] && changes['idPoke'].currentValue !== undefined) {
       this.generarPokemon();
     }
+
+    if (changes['life']) {
+      if (changes['life'].firstChange == false) {
+        /*this.showAnimation = true;
+        setTimeout(() => {
+          this.showAnimation = false;
+        }, 1000);*/
+      }
+    }
   }
 
-  getLifeBarColor(ps: number): string {
-    if (ps == ps) {
+  getLifeBarColor(): string {
+
+    if (this.life == 100) {
       return 'primary';
-    } else if (ps >= ps*75/100) {
+    } else if (this.life >= 75) {
       return 'success';
-    } else if (ps >= ps*50/100) {
+    } else if (this.life >= 25) {
       return 'warning';
     } else {
       return 'danger';
