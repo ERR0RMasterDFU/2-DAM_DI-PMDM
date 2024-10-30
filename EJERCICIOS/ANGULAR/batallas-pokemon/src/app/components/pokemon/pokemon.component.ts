@@ -36,15 +36,6 @@ export class PokemonComponent implements OnInit {
     if (changes['idPoke'] && changes['idPoke'].currentValue !== undefined) {
       this.generarPokemon();
     }
-
-    if (changes['life']) {
-      if (changes['life'].firstChange == false) {
-        /*this.showAnimation = true;
-        setTimeout(() => {
-          this.showAnimation = false;
-        }, 1000);*/
-      }
-    }
   }
 
   getLifeBarColor(): string {
