@@ -4,7 +4,7 @@
         <h1 class="fw-bold">REGISTRO DE USUARIO</h1>
     </div>
 
-    <form action="" method="post" (ngSubmit)="validacionForm(user.password, rePassword, user.nif)" #userForm="ngForm">
+    <form action="" method="post" (ngSubmit)="validacionForm(rePassword)" #userForm="ngForm">
 
         <div class="d-flex justify-content-center w-100">
             <div class="mb-3" style="width: 20%;">
@@ -19,10 +19,10 @@
                 <label for="nif" class="form-label mb-1 fw-bold">DNI / NIF (Sin letra)<span class="text-danger"> *</span></label><br>
                 <div class="d-flex w-100">
                     <input type="text" class="form-control" name="nif" id="nif" placeholder="Introduzca su DNI / NIF" required [(ngModel)]="user.nif">
-                    @if(!expresionReg.test(user.nif)) {
+                    @if(!expRegNif.test(user.nif)) {
                         <input type="text" class="ms-2 text-uppercase" name="nifLetra" id="nifLetra" readonly style="width: 12%;">
                     }@else {
-                        <input type="text" class="ms-2 text-uppercase" name="nifLetra" id="nifLetra" readonly [value]="calcularLetraNif(user.nif)" style="width: 12%;">
+                        <input type="text" class="ms-2 text-center text-uppercase" name="nifLetra" id="nifLetra" readonly [value]="calcularLetraNif(user.nif)" style="width: 12%;">
                     }
                 </div>
             </div>
@@ -43,6 +43,7 @@
                    <!--- @for (sexo of sexoList; track sexo) {
                         <option [value]="sexo">{{sexo}}</option> 
                 }-->
+                        <option selected="selected" disabled value="">Indique su sexo</option>
                         <option *ngFor="let sexo of sexoList" [value]="sexo">{{sexo}}</option>
                 </select>
             </div>

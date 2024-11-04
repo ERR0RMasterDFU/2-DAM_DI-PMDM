@@ -10,8 +10,10 @@ export class FormRegistroComponent {
 
   sexoList = ['Hombre', 'Mujer', 'Otro'];
   rePassword = '';
-  letraNif = ''
-  expresionReg = /^\d{8}$/
+  letraNif = '';
+  expRegNif = /^\d{8}$/;
+  expRegTel = /^\d{9,15}$/;
+  expRegEmail = /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/;
 
   user = new UserDto('', '', '', '', '', '', '', '');
   submitted = false
@@ -23,19 +25,6 @@ export class FormRegistroComponent {
     this.submitted = true;
   }
 
-  validacionForm(password: string, rePassword: string, numNif: string) {
-    if(!this.expresionReg.test(numNif)){
-      alert("El NIF o DNI DEBE estar compuesto por 8 dígitos.");
-    }else{
-      if(password == rePassword){
-        this.user.nif = this.user.nif.concat(this.letraNif);
-        this.addUser();
-      }else{
-        alert("Los campos de contraseña NO coinciden");
-      }
-    }
-  }
-
   calcularLetraNif(numNif: string) {
     const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
     let numero = parseInt(numNif);
@@ -43,5 +32,20 @@ export class FormRegistroComponent {
     this.letraNif = letras[resto];
     return this.letraNif;
   }
-  
+
+  validacionForm(rePassword: string) {
+    if(!this.expRegNif.test(this.user.nif)){
+      alert("El NIF o DNI DEBE estar compuesto por 8 dígitos.");
+    } else if (!this.expRegTel.test(this.user.telefono)) {
+      alert("El Nº de teléfono DEBE escribirse SIN prefijo y SIN espacios.");
+    } else if (this.user.password != rePassword) {
+      alert("Las contraseñas NO coinciden.");
+    } else if (!this.expRegEmail.test(this.user.email)) {
+      alert("El correo DEBE contener una @.");
+    } else {
+      this.user.nif = this.user.nif.concat(this.letraNif);
+      this.addUser();
+    }
+  }
+
 }
